@@ -1,15 +1,18 @@
 # installing postgres on macos
 
+first install postgres and pgadmin via homebrew:
+
 ```bash
-# fix brew
+# update homebrew
 brew doctor
 brew cleanup
 brew update
 brew upgrade
 
-# install postgres
+# download postgres
 brew install postgresql@16
 
+# link everything
 echo 'export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"' >> ~/.zshrc
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
@@ -17,18 +20,15 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/postgresql@16/lib/pkgconfig"
 rm /usr/local/var/postgres/postmaster.pid
 brew link postgresql@13 --force
 
-# install pgadmin
+# download pgadmin
 brew install --cask pgadmin4
 ```
+
+then set up a new user and database:
 
 ```bash
 # start postgres
 LC_ALL="C" /opt/homebrew/opt/postgresql@16/bin/postgres -D /opt/homebrew/var/postgresql@16
-
-# set up new user
-createdb `whoami` # evaluated to your machines username
-CREATE ROLE ??? WITH LOGIN PASSWORD 'XXX';
-psql postgres -U ???
 
 # open postgres terminal
 psql -d postgres

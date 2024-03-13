@@ -1,4 +1,4 @@
-installation process based on adbs (advanced database systems) course material.
+installation process based on adbs (advanced database systems) course material:
 
 ```bash
 # install docker
