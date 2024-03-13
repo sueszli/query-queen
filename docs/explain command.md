@@ -1,4 +1,4 @@
-## `explain` command
+## explain command
 
 ```sql
 /*

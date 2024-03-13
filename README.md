@@ -11,9 +11,3 @@
 |            \__/        |
 +------------------------+
 ```
-
-<br><br>
-
-## reference
-
-- test data from @arselzer: https://github.com/arselzer/adbs-postgres/
