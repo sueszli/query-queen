@@ -61,7 +61,3 @@ for file in $path; do
     echo "${green}running script: $file${reset}"
     psql postgres -v ON_ERROR_STOP=1 -f $file
 done
-
-# print
-echo "${green}done!${reset}"
-psql postgres -c "\dt"
