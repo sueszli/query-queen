@@ -63,5 +63,6 @@ for file in $path; do
 done
 
 # print final state
+echo -e "\n\n\n\n\n"
 echo "${green}current tables:${reset}"
 psql postgres -c "\dt"
