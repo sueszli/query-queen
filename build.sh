@@ -63,5 +63,5 @@ for file in $path; do
 done
 
 # print
-echo -e "\n\n\n\n${green}done!${reset}"
+echo "${green}done!${reset}"
 psql postgres -c "\dt"
