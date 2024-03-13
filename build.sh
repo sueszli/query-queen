@@ -64,5 +64,5 @@ done
 
 # print final state
 echo -e "\n\n\n\n\n"
-echo "${green}current tables:${reset}"
+echo "${green}final state:${reset}"
 psql postgres -c "\dt"
