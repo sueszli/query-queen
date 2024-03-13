@@ -11,5 +11,3 @@
 |            \__/        |
 +------------------------+
 ```
-
-scripts are exclusively for macos
