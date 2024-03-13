@@ -54,15 +54,14 @@ done
 echo "users left:"
 psql postgres -c "\du"
 
-# ----------------------------------------------------------------------------------------------- run sql scripts
-# run all sql scripts
+# ----------------------------------------------------------------------------------------------- run scripts
+# run all scripts
 path="./scripts/*.sql"
 for file in $path; do
     echo "${green}running script: $file${reset}"
     psql postgres -v ON_ERROR_STOP=1 -f $file
 done
 
-# print final state
-echo -e "\n\n\n\n\n"
-echo "${green}final state:${reset}"
+# print
+echo -e "\n\n\n\n${green}done!${reset}"
 psql postgres -c "\dt"

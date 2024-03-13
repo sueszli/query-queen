@@ -17,3 +17,19 @@ brew link postgresql@13 --force
 
 # download pgadmin
 brew install --cask pgadmin4
+
+# start postgres (in a separate terminal)
+# $ LC_ALL="C" /opt/homebrew/opt/postgresql@16/bin/postgres -D /opt/homebrew/var/postgresql@16
+
+# open console
+# $ psql -d postgres
+# $ psql postgres://<username>@localhost:5432/<database-name>
+
+# config via pgadmin4 
+# - open pgadmin4
+# - in the "connection" tab:
+#     - host name/address: http://localhost/
+#     - port: 5432 (the default postgresql port)
+#     - maintenance database: postgres
+#     - username: your macos username
+#     - password: leave this blank unless you've set a password for your postgresql user.
