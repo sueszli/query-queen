@@ -10,13 +10,6 @@ if [ "$(id -u)" != "0" ]; then
     return
 fi
 
-# ----------------------------------------------------------------------------------------------- create superuser account
-# create superuser account
-echo "${green}creating superuser account${reset}"
-username="postgres"
-password="password"
-psql postgres -c "CREATE USER $username SUPERUSER PASSWORD '$password';"
-
 # ----------------------------------------------------------------------------------------------- delete everything
 getUsers() {
     psql postgres -t -c "SELECT rolname FROM pg_roles WHERE rolcanlogin = true;"
@@ -51,7 +44,7 @@ done
 echo "databases left:"
 psql postgres -c "\l"
 
-# iterate through users
+# delete users
 echo "${green}deleting users${reset}"
 users=($(getUsers))
 for user in "${users[@]}"; do
@@ -61,30 +54,10 @@ done
 echo "users left:"
 psql postgres -c "\du"
 
-# ----------------------------------------------------------------------------------------------- create new user and database
-# create user account
-echo "${green}creating user account${reset}"
-username=$(whoami)
-password="password"
-psql postgres -c "CREATE ROLE $username WITH LOGIN PASSWORD '$password';"
-psql postgres -c "ALTER ROLE $username CREATEDB;"
-
-# delete database if it exists
-database="testdb"
-# psql postgres -c "DROP DATABASE IF EXISTS $database;"
-
-# create database
-# echo "${green}creating database${reset}"
-# psql postgres -c "CREATE DATABASE $database WITH OWNER $username;"
-# psql $database -c "GRANT ALL PRIVILEGES ON DATABASE $database TO $username;"
-# psql $database -c "CREATE SCHEMA public;"
-# psql $database -c "GRANT ALL PRIVILEGES ON DATABASE $database TO public;"
-
 # ----------------------------------------------------------------------------------------------- run sql scripts
 # run all sql scripts
-echo "${green}running sql scripts${reset}"
 path="./scripts/*.sql"
 for file in $path; do
-    echo "running: $file"
-    psql $database -v ON_ERROR_STOP=1 -f $file
+    echo "${green}running script: $file${reset}"
+    psql postgres -v ON_ERROR_STOP=1 -f $file
 done
