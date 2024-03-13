@@ -45,11 +45,6 @@ psql postgres -c "\dt"
 echo "${green}deleting databases${reset}"
 databases=($(getDatabases))
 for database in "${databases[@]}"; do
-    if [ "$database" = "postgres" ]; then
-        echo "skipping database: $database"
-        continue
-    fi
-
     echo "deleting database: $database"
     psql postgres -c "DROP DATABASE IF EXISTS $database"
 done
@@ -61,7 +56,7 @@ echo "${green}deleting users${reset}"
 users=($(getUsers))
 for user in "${users[@]}"; do
     echo "deleting user: $user"
-    sudo -u postgres psql -c "DROP ROLE $user;"
+    psql postgres -c "DROP USER IF EXISTS \"$user\";"
 done
 echo "users left:"
 psql postgres -c "\du"
