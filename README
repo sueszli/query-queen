@@ -7,10 +7,10 @@
 |      \\\\\\|//////      |  analysis and optimization
 |       {><><@><><}       |  by example.
 |       `"""""""""`       |
-|    ____  ______  ___    |  check out my learnings on:
+|    ____  ______  ___    |  check out the results out:
 |   /    )/      \/   \   |
-|  (     / __    _\    )  |   - `query analysis.ipynb`
-|   \    (/ o)  ( o)   )  |   - `query optimization.ipynb`
+|  (     / __    _\    )  |   - ./query analysis.ipynb
+|   \    (/ o)  ( o)   )  |   - ./query optimization.ipynb
 |    \_  (_  )   \ )  /   |
 |      \  /\_/    \)_/    |
 |       \/  //|  |\\      |
