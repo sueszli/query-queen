@@ -41,7 +41,7 @@ for index in "${indexes[@]}"; do
     psql postgres -c "DROP INDEX IF EXISTS $index;"
 done
 echo "indexes left:"
-psql postgres -c "\di"
+# psql postgres -c "\di"
 
 # delete databases
 echo "${green}deleting databases${reset}"
@@ -51,7 +51,6 @@ for database in "${databases[@]}"; do
     psql postgres -c "DROP DATABASE IF EXISTS $database"
 done
 echo "databases left:"
-psql postgres -c "\l"
 
 # delete users
 echo "${green}deleting users${reset}"
