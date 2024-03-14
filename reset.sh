@@ -3,11 +3,11 @@ reset=`tput sgr0`
 
 if ! command -v psql &>/dev/null; then
     echo "postgres is not installed"
-    return
+    exit 1
 fi
 if [ "$(id -u)" != "0" ]; then
     echo "this script must be run as root or with sudo privileges"
-    return
+    exit 1
 fi
 
 # ----------------------------------------------------------------------------------------------- delete everything
