@@ -1,0 +1,20 @@
+```
++-------------------------+
+|            o            |
+|         o^/|\^o         |
+|      o_^|\/*\/|^_o      |
+|     o\*`'.\|/.'`*/o     |  postgres query execution plan
+|      \\\\\\|//////      |  analysis and optimization
+|       {><><@><><}       |  by example.
+|       `"""""""""`       |
+|    ____  ______  ___    |  check out my learnings on:
+|   /    )/      \/   \   |
+|  (     / __    _\    )  |   - `query analysis.ipynb`
+|   \    (/ o)  ( o)   )  |   - `query optimization.ipynb`
+|    \_  (_  )   \ )  /   |
+|      \  /\_/    \)_/    |
+|       \/  //|  |\\      |
+|           v |  | v      |
+|             \__/        |
++-------------------------+
+```
