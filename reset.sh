@@ -5,10 +5,6 @@ if ! command -v psql &>/dev/null; then
     echo "postgres is not installed"
     exit 1
 fi
-if [ "$(id -u)" != "0" ]; then
-    echo "this script must be run as root or with sudo privileges"
-    exit 1
-fi
 
 # ----------------------------------------------------------------------------------------------- delete everything
 getUsers() {
@@ -16,6 +12,9 @@ getUsers() {
 }
 getTables() {
     psql $1 -t -c "SELECT tablename FROM pg_tables WHERE schemaname = 'public';"
+}
+getIndexes() {
+    psql $1 -t -c "SELECT indexname FROM pg_indexes WHERE schemaname = 'public';"
 }
 getDatabases() {
     psql postgres -t -c "SELECT datname FROM pg_database WHERE datistemplate = false;"
@@ -33,6 +32,16 @@ for database in "${databases[@]}"; do
 done
 echo "tables left:"
 psql postgres -c "\dt"
+
+# delete indexes
+echo "${green}deleting indexes${reset}"
+indexes=($(getIndexes))
+for index in "${indexes[@]}"; do
+    echo "deleting index: $index"
+    psql postgres -c "DROP INDEX IF EXISTS $index;"
+done
+echo "indexes left:"
+psql postgres -c "\di"
 
 # delete databases
 echo "${green}deleting databases${reset}"
