@@ -16,6 +16,9 @@ getTables() {
 getIndexes() {
     psql $1 -t -c "SELECT indexname FROM pg_indexes WHERE schemaname = 'public';"
 }
+getViews() {
+    psql $1 -t -c "SELECT viewname FROM pg_views WHERE schemaname = 'public';"
+}
 getDatabases() {
     psql postgres -t -c "SELECT datname FROM pg_database WHERE datistemplate = false;"
 }
@@ -41,7 +44,16 @@ for index in "${indexes[@]}"; do
     psql postgres -c "DROP INDEX IF EXISTS $index;"
 done
 echo "indexes left:"
-# psql postgres -c "\di"
+
+# delete views
+echo "${green}deleting views${reset}"
+views=($(getViews))
+for view in "${views[@]}"; do
+    echo "deleting view: $view"
+    psql postgres -c "DROP VIEW IF EXISTS $view;"
+done
+echo "views left:"
+psql postgres -c "\dv"
 
 # delete databases
 echo "${green}deleting databases${reset}"
