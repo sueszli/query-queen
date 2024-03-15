@@ -7,10 +7,10 @@
 |      \\\\\\|//////      |  analysis and optimization
 |       {><><@><><}       |  by example.
 |       `"""""""""`       |
-|    ____  ______  ___    |  check out the results:
+|    ____  ______  ___    |
 |   /    )/      \/   \   |
-|  (     / __    _\    )  |   - https://github.com/sueszli/query-queen/blob/main/query%20analysis.ipynb
-|   \    (/ o)  ( o)   )  |   - https://github.com/sueszli/query-queen/blob/main/query%20optimization.ipynb
+|  (     / __    _\    )  |  
+|   \    (/ o)  ( o)   )  |
 |    \_  (_  )   \ )  /   |
 |      \  /\_/    \)_/    |
 |       \/  //|  |\\      |
@@ -18,3 +18,8 @@
 |             \__/        |
 +-------------------------+
 ```
+
+check it out here:
+
+- https://github.com/sueszli/query-queen/blob/main/query%20analysis.ipynb
+- https://github.com/sueszli/query-queen/blob/main/query%20optimization.ipynb
