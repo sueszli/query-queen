@@ -1,9 +1,3 @@
-# update homebrew
-brew doctor
-brew cleanup
-brew update
-brew upgrade
-
 # download postgres
 brew install postgresql@16
 
