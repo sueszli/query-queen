@@ -1,7 +1,3 @@
-# install docker
-brew install --cask docker
-open /Applications/Docker.app
-
 # download and run docker compose script
 cd ~/Downloads/
 wget https://github.com/arselzer/adbs-postgres/archive/refs/tags/v1.zip
